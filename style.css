@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap');
+
+:root {
+  /* primary */
+  --moderate-violet: hsl(263, 55%, 52%);
+  --very-dark-grayish-blue: hsl(217, 19%, 35%);
+  --very-dark-blackish-blue: hsl(219, 29%, 14%);
+  --white: hsl(0, 0%, 100%);
+  /* neutral */
+  --light-gray: hsl(0, 0%, 81%);
+  --light-grayish-blue: hsl(210, 46%, 95%);
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+.container {
+  max-width: 1440px;
+  width: 90%;
+  margin: 3rem auto;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "child-1 child-1 child-2 child-5"
+    "child-3 child-4 child-4 child-5"
+  ;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  border-radius: 1.2rem;
+  box-shadow: 0 .6rem 1.2rem rgba(0, 0, 0, .3);
+}
+
+address {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  font-style: normal;
+}
+
+.author-img {
+  border-radius: 50%;
+}
+
+.author-info {
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+}
+
+.author-name {
+  font-size: 1.8rem;
+  color: var(--light-grayish-blue)
+}
+
+.author-title {
+  font-size: 1.4rem;
+  color: var(--light-gray)
+}
+
+header {
+  font-size: 2.2rem;
+  color: var(--white);
+  margin-top: 1.2rem;
+}
+
+.testimonial-txt {
+  font-size: 1.6rem;
+  color: var(--light-gray);
+  margin-top: 1.2rem;
+}
+
+.card:nth-child(1) {
+  background-color: var(--moderate-violet);
+  grid-area: child-1;
+}
+
+.card:nth-child(2) {
+  background-color: var(--very-dark-grayish-blue);
+  grid-area: child-2;
+}
+
+.card:nth-child(3) {
+  background-color: var(--white);
+  grid-area: child-3;
+}
+
+.card:nth-child(3) header,
+.card:nth-child(5) header,
+.card:nth-child(3) .author-name,
+.card:nth-child(5) .author-name {
+  color: var(--very-dark-blackish-blue);
+}
+
+.card.card:nth-child(3) .testimonial-txt,
+.card.card:nth-child(5) .testimonial-txt,
+.card.card:nth-child(3) .author-title,
+.card.card:nth-child(5) .author-title {
+  color: var(--very-dark-grayish-blue);
+}
+
+.card:nth-child(4) {
+  background-color: var(--very-dark-blackish-blue);
+  grid-area: child-4;
+}
+
+.card:nth-child(5) {
+  background-color: var(--white);
+  grid-area: child-5;
+}
+
+/* AFTER BEING LESS THAN 1000PX IT LOOKS CRUMPED */
+/* RESPONSIVE --- 1000PX *************************/
+/*************************************************/
+
+@media (max-width:1000px) {
+  .container {
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+      "child-1 child-1 child-2 child-2"
+      "child-3 child-3 child-4 child-4"
+      "child-5 child-5 child-5 child-5"
+    ;
+  }
+}
+
+/* 658px */
+
+@media (max-width:658px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, auto);
+    grid-template-areas: "child-1" "child-2" "child-3" "child-4" "child-5"
+  }
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  margin: 1.2rem 0;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
